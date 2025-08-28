@@ -1,0 +1,131 @@
+<!-- Para digitar toda essa estrutura basica do HTML é apenas digitar um ponto de exclamação e clicar em enter que aparece toda a essa estrutura, mas temos que fazer algumas modificações: -->
+
+<!DOCTYPE html>
+    <!-- Isso é a declaração que define este documento é um documento HTML5, que está na versão 5-->
+
+<html lang="pt-br">
+    <!-- A tag <html> indica que tudo o que existir dentro dela será o documento HTML. É o elemento raiz
+    de uma página HTML, ou seja, este elemento será a base para tudo o que existir na página.
+    <html> Abre
+    </html> fecha
+    Mas quando colocarmos automaticamente, está em 'en' então mudamos para 'pt-br'  especificando que é o portugues -->
+
+<head>
+    <!--O elemento <head> contém metainformações sobre a página html.-->
+
+    <meta charset="UTF-8">
+    <!-- É uma tag meta usada em documentos HTML para definir a codificação de caracteres da página.
+    UTF-8 é um padrão de codificação que suporta quase todos os caracteres de todas as línguas, caracteres especiais e símbolos. Isso garante que o navegador
+    interprete e exiba corretamente o texto, evitando erros como caracteres estranhos ou "�" no lugar de letras.-->
+
+    <meta http-equiv="X-UA-Compatible" content = "IE = edge">
+    <!-- No exemplo da alura apareceu automaticamente, mas aqui não, então tive que digitar.
+    Porém essa linha é importante porque ela está relacionada ao microsoft edge, é uma configuração para sempre utilizarmos a versão mais atual neste navegador especificamente. Se estamos rodando o código no Edge, é importante que coloquemos esta 
+    informação, alem de que a pessoa usuário final que vai usar essa aplicação pode estar rodando nele também, principalmente se for versões anteriores.-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- O conteudo de content diz respeito à largura e ao tamanho da imagem. 
+    E o nome viweport é o próprio dispositivo que acessará a nossa página, e obtém a sua largura com o 'width=device-width' para depois gerar a escala da página com 'initial-scale', que sempre iniciará com 1.0 com base na tela, e com isso não teremos problemas das imagens ficarem mal posicionadas.-->
+
+    <title>Portifólio</title>
+    <!--O elemento <title> ele especifica um título para a pág HTML, que é mostrado na barra de título do navegador/guia da página.-->
+
+    <link rel = "stylesheet" href = "style.css"> 
+    <!-- Essa tag "junta" os arquivo HTML com o CSS
+     o 'rel'é para indicar qual relação do documento html com o outro que trataremos, que no caso é o stylesheet. Logo depois colocaremos o href e então colcoaremos o nome do nosso arquivo css, que é o style.css-->
+</head>
+
+<body>
+    <!-- 
+    O <body> é criado em baixo do <head> mas ainda esta dentro da tag <html>, já que as duas estarão no msm nível em relação ao html. Porém se colocarmos "isso é um título" entre o corpo ela vai aparecer bem pequena como se fosse um texto. 
+    Agora vamos começar a montar a estrutura da nossa página. Para que fique mais organizado vamos pensar pela ordem de organização da própria página, então vamos começar pelo cabeçalho
+    Todo essa projeto é baseado nesse link:
+    https://www.figma.com/design/ycSnRWn0bPJdSuUqXMRmYJ/Portfolio---Curso-1-(Copy)?node-id=1-11&t=w4CYZuYLp35mrQLQ-0 
+    Dado pela alura, então estamos nos baseando no design desse link-->
+
+        <header>
+        <!-- A tag <header> representa o cabeçalho da página ou de uma seção.
+        Normalmente, dentro dela colocamos logotipos, menus de navegação ou títulos principais.
+        O header é semântico, ou seja, o navegador e mecanismos de busca entendem que isso é o topo da página. -->
+
+            <nav>
+            <!-- A tag <nav> representa uma área de navegação, onde colocamos links
+            que ajudam o usuário a se deslocar pelas páginas ou seções do site. -->
+
+                <ul>
+                <!-- Dentro do <nav>, geralmente usamos uma lista não ordenada (<ul>),
+                porque o menu nada mais é do que uma lista de links. -->
+
+                    <li>
+                    <!-- A tag <li> representa cada item da lista, e dentro dela colocamos os links do menu. -->
+                    <a href="#home">Início</a>
+                    <!-- A tag <a> (âncora) cria um hiperlink. 
+                    O atributo href define o destino do link. 
+                    "#home" é um link interno que aponta para a seção com o id "home" na mesma página. -->
+                    </li>
+
+                    <li>
+                    <a href="#sobre">Sobre</a>
+                <!-- Esse link levará o usuário até a seção com id="sobre". -->
+                </li>
+
+                <li>
+                    <a href="#projetos">Projetos</a>
+                    <!-- Esse link vai direcionar para a seção "projetos". -->
+                </li>
+
+                <li>
+                    <a href="#contato">Contato</a>
+                    <!-- Aqui, o link leva até a parte de contato. -->
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="apresentacao"> <!-- Conteúdo principal-->
+        <section class = "apresentacao_conteudo"> <!-- Nome do pai _ nome da classe-->
+            <!--A classe apresentacao, é uma classe que eu especifiquei
+            no arquivo CSS, para que a imagem ou os textos fiquem "separados"-->
+            <h1 class = "apresentacao_conteudo_titulo"> 
+            <!--Então para fazer um título de verdade não usamos <title> pois é usado como titulo no navegador. Então usaremos outra tag, que se chama heading, mas declaramos ela como <h> que pode ser acompanhado com um número que designa o peso para aquele título.
+            Podemos utiliza-lo tanto para título quanto para subtitulos. E o máximo é até h6-->
+                Eleve seu negócio digital a outro nível <strong class = "titulo-destaque"> com um Front-end de qualidade! </strong> 
+                <!-- Essa tag strong, é para destacar a parte que você quer no texto, ent é para que ela fique mais "forte"
+                O class é para definir oq vamos estilizar no arquivo CSS. -->
+            </h1>
+            <p class = "apresentacao_conteudo_texto">
+            <!-- A tag <p> é para parágrafo-->
+
+                Olá! Sou Duda Duda Paranhos, desenvolvedora Front-end com especialidade em React, HTML e CSS. Ajudo pequenos negócios e designers a colocarem em prática boas ideias. Vamos conversar?
+            </p>
+            <div class = "apresentacao__links"> 
+                <a class = "apresentacao_linkslink" href = "https://instagram.com/dudhii"> Instagram </a>
+                <a class = "apresentacao_links_link" href = "https://github.com/DudaParanhos"> Github </a>
+                    <!-- Quando quisermos colocar um botão que direcione para algum lugar, usaremos a tag <a> de ancora, como se fosse uma tag chamada <botão>
+                    Essa tag ancora ela é muito parecida com o da imagem, ent colocaremos o link que queremos direcionar o botão.
+                    E para colocar o link, usamos o href -->
+            </div>
+            <!-- A <div> é frequentemente utilizada quando precisamos agrupar elementos sem usar as tags semânticas do HTML. Isso acontece porque a <div> não 
+            tem valor semântico. Portanto, não significa nada para os navegadores e mecanismos de pesquisa.-->
+        </section>
+        <img src = "Imagem.png" alt = "Foto desenvolvedora">
+            <!-- A tag <img > não tem fechamento, para adicionar a imagem temos que escrever o seu endereço, e com esse endereço a tag vai buscar a imagem e exibirá na tela.
+            E para informar onde a imagem está usamos a propriedade src (source/fonte)
+            Não é só o <head> que carrega as meta informações relevantes para a nossa página. No <body> também temos informações muito relevantes para a página e que não são visíveis. Essas informações são utilizadas por pessoas que utilizam leitores de tela.Agora para o navegador ler uma imagem e a exibir para as pessoas que utilizam os leitores de tela, nós precisamos descrever a imagem com o alt. -->
+    </main>
+    <footer> </footer>
+    <!--Rodapé-->
+</body>
+</html>
+
+<!-- 
+<ul>
+(A tag <ul> em HTML é usada para criar uma lista não ordenada.
+Os itens dentro de <ul> são marcados com pontos (•) por padrão.)
+        <li> Item 1 </il>
+        <li> Item 2 </il>
+        <li> Item 3 </il>
+            (Cada item da lista é definido com a tag <li> (list item))
+</ul>
+-->

@@ -1,0 +1,131 @@
+/* Fonte padrão */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fff;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalho com gradiente */
+header {
+  background: linear-gradient(to right, #0a1a2a, #050a12);
+  color: white;
+  padding-bottom: 50px;
+}
+
+/* Container do menu */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.menu li a,
+.menu-btn {
+  font-size: 12px;
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu li a:hover,
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero (introdução) */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.btn {
+  font-size: 12px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 6px;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Imagem da hero */
+.hero-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Seção "Sobre" */
+main {
+  background: #fafafa;
+  padding: 50px 20px;
+}
+
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}

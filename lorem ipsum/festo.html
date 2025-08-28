@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figma → HTML (Template)</title>
+  <!-- Fonte (troque conforme seu projeto) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================
+       TOKENS – Cole aqui os valores do Dev Mode
+       ========================================== */
+    :root{
+      /* Cores (substitua pelos tokens/estilos do Figma) */
+      --color-bg: #0F172A;              /* ex: Background */
+      --color-surface: #111827;         /* ex: Surface/Card */
+      --color-text: #E5E7EB;            /* ex: Text/Primary */
+      --color-muted: #9CA3AF;           /* ex: Text/Secondary */
+      --color-primary: #0099FF;         /* ex: Brand/Primary */
+      --color-border: color-mix(in oklab, var(--color-bg), white 10%);
+
+      /* Tipografia */
+      --font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; /* troque pela fonte do Figma */
+      --h1: clamp(2rem, 4vw, 3rem);
+      --h2: clamp(1.5rem, 3vw, 2rem);
+      --h3: 1.25rem;
+      --body: 1rem;
+      --line: 1.5;
+
+      /* Espaçamentos e raios (mapeie dos 8/10/12/16px etc.) */
+      --space-1: 0.5rem;   /* 8px */
+      --space-2: 1rem;     /* 16px */
+      --space-3: 1.5rem;   /* 24px */
+      --space-4: 2rem;     /* 32px */
+      --space-5: 3rem;     /* 48px */
+      --radius: 16px;
+      --container: 1200px; /* max width do frame */
+    }
+
+    /* Reset mínimo */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:var(--font-family); background:var(--color-bg); color:var(--color-text); line-height:var(--line)}
+    img{max-width:100%; height:auto; display:block}
+    a{color:inherit}
+
+    .container{width:100%; max-width:var(--container); margin-inline:auto; padding:0 var(--space-2)}
+
+    /* ===== Header (Auto Layout horizontal) ===== */
+    header{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: saturate(1.2) blur(8px);
+      background: color-mix(in oklab, var(--color-bg) 85%, black);
+      border-bottom: 1px solid var(--color-border);
+    }
+    .navbar{display:flex; align-items:center; justify-content:space-between; gap:var(--space-2); padding: var(--space-2) 0}
+    .brand{display:flex; align-items:center; gap: .5rem; font-weight:700}
+    .nav{display:flex; align-items:center; gap: var(--space-2)}
+    .nav a{opacity:.85; text-decoration:none}
+    .nav a:hover{opacity:1}
+    .menu-btn{display:none}
+
+    /* ===== Hero (Auto Layout vertical) ===== */
+    .hero{display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--space-3); padding: clamp(3rem, 6vw, 6rem) 0}
+    .hero h1{font-size:var(--h1); margin:0}
+    .hero p{max-width:60ch; color:var(--color-muted); margin:0}
+    .actions{display:flex; gap:var(--space-2); flex-wrap:wrap; justify-content:center}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.75rem 1.25rem; border-radius:calc(var(--radius) - 4px); text-decoration:none; border:1px solid transparent; font-weight:600}
+    .btn--primary{background:var(--color-primary); color:#0B1220}
+    .btn--ghost{border-color:var(--color-border); color:var(--color-text)}
+
+    /* ===== Seção de Cards (Grid) ===== */
+    .section{padding: var(--space-5) 0}
+    .section-header{display:flex; flex-direction:column; gap:.5rem; margin-bottom: var(--space-3)}
+    .section h2{font-size:var(--h2); margin:0}
+    .section .lead{color:var(--color-muted); margin:0}
+
+    .grid{display:grid; gap:var(--space-3); grid-template-columns: repeat(12, 1fr)}
+    .card{grid-column: span 12; background:var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-3); display:flex; flex-direction:column; gap:var(--space-2)}
+    .card h3{font-size:var(--h3); margin:0}
+    .card p{margin:0; color:var(--color-muted)}
+
+    /* ===== Seção 2 colunas ===== */
+    .two-col{display:grid; gap: var(--space-3); grid-template-columns: 1fr}
+    .two-col .col{background:var(--color-surface); border:1px solid var(--color-border); border-radius: var(--radius); padding: var(--space-3)}
+
+    /* ===== Footer ===== */
+    footer{padding: var(--space-4) 0; color: var(--color-muted); border-top:1px solid var(--color-border)}
+
+    /* ===== Breakpoints (mapeie dos constraints/grids do Figma) ===== */
+    @media (min-width:768px){
+      .card{grid-column: span 6}
+      .two-col{grid-template-columns: 1fr 1fr}
+    }
+    @media (min-width:1024px){
+      .card{grid-column: span 4}
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container navbar">
+      <div class="brand" aria-label="Logo">
+        <!-- Se tiver logo SVG, cole inline aqui -->
+        <span>Marca</span>
+      </div>
+      <nav class="nav" aria-label="principal">
+        <a href="#">Produto</a>
+        <a href="#">Soluções</a>
+        <a href="#">Preços</a>
+        <a href="#">Contato</a>
+      </nav>
+      <button class="menu-btn" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero container">
+      <h1><!-- Cole o H1 do frame --></h1>
+      <p><!-- Cole o subtítulo/descrição do frame --></p>
+      <div class="actions">
+        <a class="btn btn--primary" href="#"><!-- CTA primária --></a>
+        <a class="btn btn--ghost" href="#"><!-- CTA secundária --></a>
+      </div>
+      <!-- Se o hero tiver imagem, posicione abaixo -->
+      <!-- <img src="hero.webp" alt="Descrição da imagem do hero" width="" height=""> -->
+    </section>
+
+    <!-- ===== SECTION: CARDS ===== -->
+    <section class="section container">
+      <div class="section-header">
+        <h2><!-- Título da seção --></h2>
+        <p class="lead"><!-- Texto de apoio --></p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3><!-- Título card 1 --></h3>
+          <p><!-- Descrição card 1 --></p>
+        </article>
+        <article class="card">
+          <h3><!-- Título card 2 --></h3>
+          <p><!-- Descrição card 2 --></p>
+        </article>
+        <article class="card">
+          <h3><!-- Título card 3 --></h3>
+          <p><!-- Descrição card 3 --></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== SECTION: 2 COLUNAS ===== -->
+    <section class="section container">
+      <div class="two-col">
+        <div class="col">
+          <h3><!-- Título coluna A --></h3>
+          <p><!-- Texto coluna A --></p>
+        </div>
+        <div class="col">
+          <h3><!-- Título coluna B --></h3>
+          <p><!-- Texto coluna B --></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">© <span id="year"></span> Sua Empresa</div>
+  </footer>
+
+  <script>
+    // Acessibilidade/aUX básicos
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function toggleMenu(){
+      const nav = document.querySelector('.nav');
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // ===== TODOs (ajuste conforme seu frame) =====
+    // 1) Cole tokens de cor/tipografia (Dev Mode > Inspecionar > CSS)
+    // 2) Substitua textos, CTAs e imagens
+    // 3) Se o layout usar Grid de 12 colunas, valide os spans nos breakpoints
+    // 4) Troque fontes Google pela fonte oficial, se necessário
+    // 5) Insira ícones SVG inline onde estiverem no Figma
+  </script>
+</body>
+</html>
